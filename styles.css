@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Dosis', sans-serif;
+    background: linear-gradient(135deg, #ff96f5, #ffccff); /* Soft gradient background with love theme colors */
+    color: #ffffff; /* White text color for better contrast */
+}
+
+.container {
+    max-width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffe6ff, #ffd6e8); /* Gradient background */
+    border-radius: 20px; /* Rounded corners for a softer look */
+    box-shadow: 0 0 20px rgba(255, 0, 102, 0.5); /* Shadow color of love theme */
+    position: relative; /* Positioning for heart animations */
+}
+
+.container::before,
+.container::after {
+    content: '\2665'; /* Heart icon */
+    font-size: 20px; /* Size of heart icon */
+    position: absolute;
+    color: #ff4d6a; /* Color of heart icon */
+    top: -10px; /* Adjust vertical position */
+    left: -10px; /* Adjust horizontal position */
+    animation: heartBeat 1.5s infinite alternate; /* Heartbeat animation */
+}
+
+.container::after {
+    content: '\2665'; /* Heart icon */
+    font-size: 20px; /* Size of heart icon */
+    position: absolute;
+    color: #ff4d6a; /* Color of heart icon */
+    bottom: -10px; /* Adjust vertical position */
+    right: -10px; /* Adjust horizontal position */
+    animation: heartBeat 1.5s infinite alternate-reverse; /* Heartbeat animation */
+}
+
+@keyframes heartBeat {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+header h1 {
+    text-align: center;
+    color: #ffffff; /* White text color */
+    font-family: 'Pacifico', cursive;
+    font-size: 48px; /* Larger font size for emphasis */
+    background: linear-gradient(45deg, #ff78ec, #ffccff); /* Gradient background with love theme colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.message {
+    margin-top: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffb3d1, #ff99cc); /* Gradient background */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(255, 0, 102, 0.5); /* Shadow color of love theme */
+    color: #ff4d6a; /* Red or pinkish text color for harmony */
+    position: relative; /* Positioning for heart icons */
+}
+
+.message::before,
+.message::after {
+    content: '\2665'; /* Heart icon */
+    font-size: 20px; /* Size of heart icon */
+    position: absolute;
+    color: #ff4d6a; /* Color of heart icon */
+    top: -10px; /* Adjust vertical position */
+    left: -10px; /* Adjust horizontal position */
+    animation: heartBeat 1.5s infinite alternate; /* Heartbeat animation */
+}
+
+.message::after {
+    content: '\2665'; /* Heart icon */
+    font-size: 20px; /* Size of heart icon */
+    position: absolute;
+    color: #ff4d6a; /* Color of heart icon */
+    bottom: -10px; /* Adjust vertical position */
+    right: -10px; /* Adjust horizontal position */
+    animation: heartBeat 1.5s infinite alternate-reverse; /* Heartbeat animation */
+}
+
+@keyframes heartBeat {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+
+.picture-section {
+    text-align: center;
+    margin-top: 30px;
+    position: relative; /* Positioning for heart animations */
+}
+
+.picture-section::before,
+.picture-section::after {
+    content: '\2665'; /* Heart icon */
+    font-size: 20px; /* Size of heart icon */
+    position: absolute;
+    color: #ff4d6a; /* Color of heart icon */
+    top: -10px; /* Adjust vertical position */
+    left: -10px; /* Adjust horizontal position */
+    animation: heartBeat 1.5s infinite alternate; /* Heartbeat animation */
+}
+
+.picture-section::after {
+    content: '\2665'; /* Heart icon */
+    font-size: 20px; /* Size of heart icon */
+    position: absolute;
+    color: #ff4d6a; /* Color of heart icon */
+    bottom: -10px; /* Adjust vertical position */
+    right: -10px; /* Adjust horizontal position */
+    animation: heartBeat 1.5s infinite alternate-reverse; /* Heartbeat animation */
+}
+
+.picture-section img {
+    max-width: 50%; /* Adjust width to fit container */
+    height: auto; /* Maintain aspect ratio */
+    display: block;
+    margin: 0 auto; /* Center the image */
+    transition: transform 0.3s ease-in-out; /* Smooth transition for transform property */
+}
+
+.picture-section:hover img {
+    transform: scale(1.1); /* Scale up the image on hover for an impressive effect */
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, #ff96f5, #ffccff); /* Gradient background with love theme colors */
+    padding: 10px 0;
+    text-align: center;
+    border-top: 1px solid #ffffff; /* White border */
+}
+
+.made-by {
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Bold text for emphasis */
+    color: #ffffff; /* White text color */
+}
+
+/* Media query for smartphones */
+@media screen and (max-width: 600px) {
+    header h1 {
+        font-size: 36px; /* Decrease font size for smaller screens */
+    }
+
+    .container {
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+
+    .message {
+        padding: 15px;
+    }
+
+    .footer {
+        font-size: 16px; /* Decrease font size for smaller screens */
+    }
+}

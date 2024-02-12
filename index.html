@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Message</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>My Valentine</h1>
+    </header>
+    <div class="message">
+      <div id="typed-message"></div>
+    </div>
+    <div class="picture-section">
+      <img id="girlfriend-picture" src="sh.jpeg" alt="Your Girlfriend" style="display: none;">
+    </div>
+    <div class="message" id="second-message" style="display: none;">
+      <div id="typed-second-message"></div>
+    </div>
+    <div class="heart-message" id="heart-message" style="display: none;">
+      <p><span id="heart1" class="heart">&hearts;</span> <span id="heart2" class="heart">&hearts;</span> <span id="heart3" class="heart">&hearts;</span></p>
+    </div>
+  </div>
+  <footer id="footer" class="footer" style="display: none;">
+    <div class="made-by">
+      <span id="typed-footer"></span>
+    </div>
+  </footer>
+  <audio id="bg-music" loop autoplay>
+    <source src="audio.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    const messages = [
+      "My Dearest Love,",
+      "On this special Valentine's Day, I want to take a moment to express my deepest feelings for you.",
+      "You are the light of my life, the one who brings me joy and happiness every single day.",
+      "Your smile brightens up my darkest days, and your laughter is music to my ears.",
+      "I am grateful for every moment we share together, and I cherish the love we have.",
+      "You are not just my girlfriend, but my partner, my confidant, and my best friend.",
+      "I love you more than words can express, and I promise to always cherish and treasure you.",
+      "Happy Valentine's Day, my love. Here's to many more beautiful moments together.",
+      "Forever and always, yours."
+    ];
+
+    const typedMessage = document.getElementById('typed-message');
+    const girlfriendPicture = document.getElementById('girlfriend-picture');
+    const secondMessage = document.getElementById('second-message');
+    const typedSecondMessage = document.getElementById('typed-second-message');
+    const heartMessage = document.getElementById('heart-message');
+    const heart1 = document.getElementById('heart1');
+    const heart2 = document.getElementById('heart2');
+    const heart3 = document.getElementById('heart3');
+    const footer = document.getElementById('footer');
+    const typedFooter = document.getElementById('typed-footer');
+
+    let currentMessageIndex = 0;
+    let currentCharIndex = 0;
+    let typingSpeed = 50;
+
+    function typeNextChar() {
+      if (currentMessageIndex < messages.length) {
+        if (currentCharIndex < messages[currentMessageIndex].length) {
+          typedMessage.textContent += messages[currentMessageIndex].charAt(currentCharIndex);
+          currentCharIndex++;
+          setTimeout(typeNextChar, typingSpeed);
+        } else {
+          // Move to the next message
+          currentMessageIndex++;
+          if (currentMessageIndex < messages.length) {
+            typedMessage.innerHTML += "<br>"; // Add line break between messages
+            currentCharIndex = 0;
+            setTimeout(typeNextChar, typingSpeed * 10);
+          } else {
+            // After typing the last message, display girlfriend's picture and second message
+            girlfriendPicture.style.display = 'block';
+            typeSecondMessage();
+          }
+        }
+      }
+    }
+
+    function typeSecondMessage() {
+      const secondMessageText = "I'm so grateful to have you in my life. You mean everything to me.";
+      let charIndex = 0;
+      secondMessage.style.display = 'block';
+
+      function typeNextCharSecondMessage() {
+        if (charIndex < secondMessageText.length) {
+          typedSecondMessage.textContent += secondMessageText.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeNextCharSecondMessage, typingSpeed);
+        } else {
+          // After typing the second message, display heart message
+          heartMessage.style.display = 'block';
+          animateHearts();
+          typeFooterMessage();
+        }
+      }
+
+      setTimeout(typeNextCharSecondMessage, typingSpeed);
+    }
+
+    function animateHearts() {
+      heart1.classList.add('heartbeat');
+      heart2.classList.add('heartbeat');
+      heart3.classList.add('heartbeat');
+    }
+
+    function typeFooterMessage() {
+      const footerMessage = "Made By your Lover/Bf/Husband/Buddhu ❤️";
+      let charIndex = 0;
+
+      function typeNextCharFooterMessage() {
+        if (charIndex < footerMessage.length) {
+          typedFooter.textContent += footerMessage.charAt(charIndex);
+          charIndex++;
+          setTimeout(typeNextCharFooterMessage, typingSpeed);
+        }
+      }
+
+      footer.style.display = 'block';
+      setTimeout(typeNextCharFooterMessage, typingSpeed);
+    }
+
+    setTimeout(typeNextChar, typingSpeed);
+  </script>
+</body>
+</html>
